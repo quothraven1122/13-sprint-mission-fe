@@ -1,6 +1,3 @@
-html {
-  font-size: clamp(10px, 2vw, 16px);
-}
 .body {
   width: 100vw;
   height: 100vh;
@@ -25,11 +22,11 @@ html {
   margin-bottom: 40px;
 }
 .logo-img {
-  width: 103.53px;
-  height: 103.53px;
+  width: clamp(2rem, 15vw, 6.5rem);
+  height: clamp(2rem, 15vw, 6.5rem);
 }
 .logo-txt {
-  font-size: 4.15rem;
+  font-size: clamp(2rem, 10vw, 4.15rem);
   font-weight: 700;
   color: var(--primary-bg-color);
 }
