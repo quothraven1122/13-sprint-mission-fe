@@ -1,3 +1,6 @@
+html {
+  font-size: clamp(10px, 2vw, 16px);
+}
 .body {
   display: flex;
   flex-direction: column;
@@ -5,7 +8,7 @@
   padding: 60px 0;
 }
 .content {
-  width: 640px;
+  width: clamp(20rem, 80%, 40rem);
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -24,7 +27,7 @@
   height: 103.53px;
 }
 .logo-txt {
-  font-size: 66.34px;
+  font-size: 4.15rem;
   font-weight: 700;
   color: var(--primary-bg-color);
 }
@@ -34,7 +37,7 @@
   height: 98px;
 }
 .input-txt {
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--secondary-color-800);
 }
@@ -57,7 +60,7 @@
   height: 26px;
   background-color: var(--secondary-color);
   border: 0;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
   color: var(--secondary-color-800);
 }
@@ -88,7 +91,7 @@
   cursor: pointer;
 }
 .btn-txt {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--secondary-color);
 }
@@ -103,7 +106,7 @@
   border-radius: 8px;
 }
 .social-txt {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
   color: var(--secondary-color-800);
 }

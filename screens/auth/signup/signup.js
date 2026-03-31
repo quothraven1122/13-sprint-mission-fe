@@ -7,11 +7,11 @@ for (let toggle of toggles) {
     if (pwInput.type === "password") {
       //hidden
       pwInput.type = "text";
-      toggle.src = "./assets/icons/ic_btn_visibility_on.png";
+      toggle.src = "../../../assets/icons/ic_btn_visibility_on.png";
     } else if (pwInput.type === "text") {
       //visible
       pwInput.type = "password";
-      toggle.src = "./assets/icons/ic_btn_visibility_off.png";
+      toggle.src = "../../../assets/icons/ic_btn_visibility_off.png";
     }
   });
 }
