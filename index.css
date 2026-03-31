@@ -1,22 +1,6 @@
 html {
   font-size: clamp(10px, 2vw, 16px);
 }
-:root {
-  --font-size-logo: 1.6rem;
-  --font-size-title: 2.5rem;
-  --font-size-content: 1.5rem;
-  --font-size-tag: 1.125rem;
-  --font-size-menu: 1rem;
-  --primary-bg-color: #3692ff;
-  --secondary-bg-color: #cfe5ff;
-  --tertiary-bg-color: #fcfcfc;
-  --primary-color: #374151;
-  --secondary-color: #f3f4f6;
-  --tertiary-color: #e5e7eb;
-  --font-weight-title: 700;
-  --font-weight-content: 500;
-  --font-weight-btn: 600;
-}
 
 header {
   width: 100vw;
