@@ -1,0 +1,213 @@
+html {
+  font-size: clamp(10px, 2vw, 16px);
+}
+:root {
+  --font-size-logo: 1.6rem;
+  --font-size-title: 2.5rem;
+  --font-size-content: 1.5rem;
+  --font-size-tag: 1.125rem;
+  --font-size-menu: 1rem;
+  --primary-bg-color: #3692ff;
+  --secondary-bg-color: #cfe5ff;
+  --tertiary-bg-color: #fcfcfc;
+  --primary-color: #374151;
+  --secondary-color: #f3f4f6;
+  --tertiary-color: #e5e7eb;
+  --font-weight-title: 700;
+  --font-weight-content: 500;
+  --font-weight-btn: 600;
+}
+
+header {
+  width: 100vw;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px clamp(5rem, 9vw, 12.5rem);
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8.59px;
+}
+.logo-img {
+  width: 40px;
+  height: 40.14px;
+}
+.logo h1 {
+  font-size: var(--font-size-logo);
+  font-weight: var(--font-weight-title);
+  color: var(--primary-bg-color);
+}
+.login-btn {
+  width: 128px;
+  height: 48px;
+  background-color: var(--primary-bg-color);
+  border-radius: 8px;
+  font-weight: var(--font-weight-btn);
+  color: var(--secondary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.banner {
+  height: 34rem;
+  background-color: var(--secondary-bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.banner-wrapper {
+  width: fit-content;
+  height: 397px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.banner-content h2 {
+  font-size: var(--font-size-title);
+  font-weight: var(--font-weight-title);
+  color: var(--primary-color);
+  margin-bottom: 32px;
+  line-height: 140%;
+}
+.look-btn {
+  width: 357px;
+  height: 56px;
+  border-radius: 40px;
+  background-color: var(--primary-bg-color);
+  color: var(--secondary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.banner-img {
+  width: clamp(20rem, 50vw, 47rem);
+  height: auto;
+}
+.content {
+  padding-bottom: 138px;
+}
+.card-container {
+  height: clamp(30rem, 45vw, 45rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  width: 988px;
+  background-color: var(--tertiary-bg-color);
+  display: flex;
+}
+.card:hover {
+  cursor: pointer;
+}
+.flip {
+  flex-direction: row-reverse;
+}
+.card-img {
+  width: clamp(20rem, 50vw, 36.75rem);
+  height: auto;
+}
+.card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  margin-right: 31px;
+}
+.flipped-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 31px;
+}
+.flipped-card-div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: end;
+}
+.card-tag {
+  font-size: var(--font-size-tag);
+  font-weight: var(--font-weight-title);
+  color: var(--primary-bg-color);
+}
+.card-title {
+  font-size: var(--font-size-title);
+  font-weight: var(--font-weight-title);
+  color: var(--primary-color);
+  margin-top: 12px;
+  margin-bottom: 24px;
+  line-height: 140%;
+}
+.card-text {
+  font-size: var(--font-size-content);
+  font-weight: var(--font-weight-content);
+  color: var(--primary-color);
+  line-height: 32px;
+}
+footer {
+  height: 160px;
+  background-color: #111827;
+  color: var(--tertiary-color);
+  padding: 32px clamp(5rem, 9vw, 12.5rem);
+}
+.footer-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.info {
+  width: fit-content;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: center;
+}
+.sns {
+  width: fit-content;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+@media (max-width: 800px) {
+  .company {
+    display: none;
+  }
+  .sns {
+    display: none;
+  }
+  .footer-content {
+    justify-content: center;
+  }
+}
+@media (max-width: 750px) {
+  .banner-img {
+    display: none;
+  }
+  .banner-wrapper {
+    height: 100%;
+  }
+  html {
+    padding-top: 70px;
+  }
+  .card-text {
+    line-height: 150%;
+  }
+  :root {
+    --font-size-title: 2rem;
+    --font-size-content: 1rem;
+    --font-size-tag: 1.125rem;
+    --font-size-menu: 1rem;
+  }
+}
