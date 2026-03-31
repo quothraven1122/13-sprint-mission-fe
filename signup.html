@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./login.css" />
     <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./signup.css" />
     <title>Document</title>
   </head>
   <body>
@@ -17,13 +17,32 @@
         <div class="input">
           <p class="input-txt">이메일</p>
           <div class="input-bar">
-            <input type="email" />
+            <input type="email" placeholder="이메일을 입력해주세요" />
+          </div>
+        </div>
+        <div class="input">
+          <p class="input-txt">닉네임</p>
+          <div class="input-bar">
+            <input type="text" placeholder="닉네임을 입력해주세요" />
           </div>
         </div>
         <div class="input">
           <p class="input-txt">비밀번호</p>
           <div class="input-bar">
-            <input type="password" />
+            <input type="password" placeholder="비밀번호를 입력해주세요" />
+            <img
+              src="./assets/icons/ic_btn_visibility_off.png"
+              alt="toggle-pw-visibility"
+            />
+          </div>
+        </div>
+        <div class="input">
+          <p class="input-txt">비밀번호 확인</p>
+          <div class="input-bar">
+            <input
+              type="password"
+              placeholder="비밀번호를 다시 한 번 입력해주세요"
+            />
             <img
               src="./assets/icons/ic_btn_visibility_off.png"
               alt="toggle-pw-visibility"
@@ -49,8 +68,8 @@
           </div>
         </div>
         <div class="signup">
-          <p>판다마켓이 처음이신가요?</p>
-          <a class="signup-link" href="./signup.html">회원가입</a>
+          <p>이미 회원이신가요?</p>
+          <a class="signup-link" href="./signup.html">로그인</a>
         </div>
       </div>
     </div>
