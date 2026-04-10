@@ -92,14 +92,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.btn:hover {
-  cursor: pointer;
-}
-.btn-txt {
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--secondary-color);
+}
+.btn:hover {
+  cursor: pointer;
 }
 .social-login {
   width: 100%;
