@@ -38,26 +38,38 @@
         <h1 class="logo-txt">판다마켓</h1>
       </a>
       <div class="content">
-        <div class="input">
-          <p class="input-txt">이메일</p>
-          <div class="input-bar">
-            <input type="email" placeholder="이메일을 입력해주세요" />
+        <form class="form" onsubmit="handleSubmit(event)">
+          <div class="input">
+            <label for="email" class="input-txt">이메일</label>
+            <div class="input-bar">
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="이메일을 입력해주세요"
+              />
+            </div>
           </div>
-        </div>
-        <div class="input">
-          <p class="input-txt">비밀번호</p>
-          <div class="input-bar">
-            <input type="password" placeholder="비밀번호를 입력해주세요" />
-            <img
-              src="../../../assets/icons/ic_btn_visibility_off.png"
-              alt="toggle-pw-visibility"
-              class="input-toggle"
-            />
+          <div class="input">
+            <label for="password" class="input-txt">비밀번호</label>
+            <div class="input-bar">
+              <input
+                id="password"
+                name="password"
+                type="password"
+                placeholder="비밀번호를 입력해주세요"
+              />
+              <img
+                src="../../../assets/icons/ic_btn_visibility_off.png"
+                alt="toggle-pw-visibility"
+                class="input-toggle"
+              />
+            </div>
           </div>
-        </div>
-        <div class="btn">
-          <p class="btn-txt">로그인</p>
-        </div>
+          <button type="submit" class="btn">
+            <p class="btn-txt">로그인</p>
+          </button>
+        </form>
         <div class="social-login">
           <p class="social-txt">간편 로그인하기</p>
           <div class="social-btns">

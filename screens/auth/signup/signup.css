@@ -13,6 +13,15 @@
   align-items: center;
   gap: 24px;
 }
+.form {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
 .logo {
   display: flex;
   align-items: center;
