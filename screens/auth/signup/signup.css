@@ -13,6 +13,15 @@
   align-items: center;
   gap: 24px;
 }
+.form {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
 .logo {
   display: flex;
   align-items: center;
@@ -83,14 +92,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.btn:hover {
-  cursor: pointer;
-}
-.btn-txt {
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--secondary-color);
+}
+.btn:hover {
+  cursor: pointer;
 }
 .social-login {
   width: 100%;

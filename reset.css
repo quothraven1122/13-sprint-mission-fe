@@ -129,25 +129,6 @@ a:active {
   text-decoration: none;
   color: inherit;
 }
-
-/*CSS Variables*/
-:root {
-  --font-size-logo: 1.6rem;
-  --font-size-title: 2.5rem;
-  --font-size-content: 1.5rem;
-  --font-size-tag: 1.125rem;
-  --font-size-menu: 1rem;
-  --brand-blue: #3182f6;
-  --primary-bg-color: #3692ff;
-  --secondary-bg-color: #cfe5ff;
-  --secondary-bg-color-400: #9ca3af;
-  --tertiary-bg-color: #fcfcfc;
-  --quaternary-bg-color: #e6f2ff;
-  --primary-color: #374151;
-  --secondary-color-800: #1f2937;
-  --secondary-color: #f3f4f6;
-  --tertiary-color: #e5e7eb;
-  --font-weight-title: 700;
-  --font-weight-content: 500;
-  --font-weight-btn: 600;
+button {
+  all: unset;
 }
