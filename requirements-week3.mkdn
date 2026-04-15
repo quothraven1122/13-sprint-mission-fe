@@ -1,15 +1,15 @@
 ### ✅ 기본 요구사항
 
 - [ ] Github에 스프린트 미션 PR을 만들어 주세요.
-- [ ] 'https://panda-market-api-crud.vercel.app/docs/#/Article' API를 이용하여 아래 함수들을 구현해 주세요.
-  - [ ] getArticleList() : GET 메서드를 사용해 주세요.
-    - [ ] page, pageSize, keyword 쿼리 파라미터를 이용해 주세요.
-  - [ ] getArticle() : GET 메서드를 사용해 주세요.
-  - [ ] createArticle() : POST 메서드를 사용해 주세요.
-    - [ ] request body에 title, content, image 를 포함해 주세요.
-  - [ ] patchArticle() : PATCH 메서드를 사용해 주세요.
-  - [ ] deleteArticle() : DELETE 메서드를 사용해 주세요.
-- [ ] fetch 혹은 axios 를 이용해 주세요.
+- [x] 'https://panda-market-api-crud.vercel.app/docs/#/Article' API를 이용하여 아래 함수들을 구현해 주세요.
+  - [x] getArticleList() : GET 메서드를 사용해 주세요.
+    - [x] page, pageSize, keyword 쿼리 파라미터를 이용해 주세요.
+  - [x] getArticle() : GET 메서드를 사용해 주세요.
+  - [x] createArticle() : POST 메서드를 사용해 주세요.
+    - [x] request body에 title, content, image 를 포함해 주세요.
+  - [x] patchArticle() : PATCH 메서드를 사용해 주세요.
+  - [x] deleteArticle() : DELETE 메서드를 사용해 주세요.
+- [x] fetch 혹은 axios 를 이용해 주세요.
   - [x] 응답의 상태 코드가 2XX가 아닐 경우, 에러메시지를 콘솔에 출력해 주세요.
 - [x] .then() 메서드를 이용하여 비동기 처리를 해주세요. -> async/await를 쓸 예정이라 안 쓸 것 같습니다.
 - [x] .catch() 를 이용하여 오류 처리를 해주세요. -> async/await를 쓸 예정이라 안 쓸 것 같습니다.

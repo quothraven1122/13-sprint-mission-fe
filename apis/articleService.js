@@ -1,12 +1,6 @@
 import request from "./main.js";
 const ARTICLE_URL = "/articles";
 
-document.querySelector("#test").addEventListener("click", async () => {
-  //테스트할 함수 넣기
-  const result = await deleteArticle(5965);
-  console.log(result);
-});
-
 export const getArticleList = async (page, pageSize, keyword) => {
   const queryParam = new URLSearchParams({
     page,
