@@ -1,12 +1,6 @@
 import request from "./main.js";
 const PRODUCT_URL = "/products";
 
-document.querySelector("#test").addEventListener("click", async () => {
-  //테스트할 함수 넣기
-  const result = await getProduct(3393);
-  console.log(result); //3393
-});
-
 export const getProductList = async (page, pageSize, keyword) => {
   const queryParam = new URLSearchParams({
     page,
