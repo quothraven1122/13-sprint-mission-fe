@@ -26,5 +26,6 @@ export default async function request(method = "GET", url, body, options = {}) {
     return data;
   } catch (e) {
     console.error(e);
+    throw e;
   }
 }
