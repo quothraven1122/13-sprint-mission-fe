@@ -1,7 +1,3 @@
-html {
-  font-size: clamp(10px, 2vw, 16px);
-}
-
 header {
   width: 100vw;
   height: 70px;

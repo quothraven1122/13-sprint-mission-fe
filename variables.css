@@ -1,14 +1,18 @@
 /*CSS Variables*/
 :root {
-  /*breakpoint variables*/
-  --bp-mobile: 0px;
-  --bp-tablet: 768px;
-  --bp-desktop: 1024px;
-  --bp-large: 1280px;
+  /*breakpoint variables(min-width 기준)*/
+  /*media query에는 사용 못 하지만 어떤 breakpoint를 지정했는지 표기하기 위한 용도*/
+  --bp-large: 1440px;
+  --bp-desktop: 1200px;
+  --bp-tablet: 1024px;
+  --bp-mobile: 768px;
+  --bp-small: 480px;
 
-  /*size variables*/
-  --font-size-logo: 1.6rem;
+  /*font size variables*/
+  --font-size-big-logo: 6.5rem;
   --font-size-title: 2.5rem;
+  --font-size-form: 1.8rem;
+  --font-size-logo: 1.6rem;
   --font-size-content: 1.5rem;
   --font-size-tag: 1.125rem;
   --font-size-menu: 1rem;
