@@ -43,7 +43,7 @@
   height: 9.8rem;
 }
 .input-txt {
-  font-size: var(--font-size-form);
+  font-size: var(--font-size-tag);
   font-weight: 700;
   color: var(--secondary-color-800);
 }
@@ -66,7 +66,7 @@
   height: 2.6rem;
   background-color: var(--secondary-color);
   border: 0;
-  font-size: var(--font-size-content);
+  font-size: var(--font-size-menu);
   font-weight: 400;
   color: var(--secondary-color-800);
 }
@@ -92,7 +92,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: var(--font-size-form);
+  font-size: var(--font-size-tag);
   font-weight: 600;
   color: var(--secondary-color);
 }
@@ -110,7 +110,7 @@
   background-color: var(--quaternary-bg-color);
 }
 .social-txt {
-  font-size: var(--font-size-content);
+  font-size: var(--font-size-tag);
   font-weight: 500;
   color: var(--secondary-color-800);
 }
@@ -128,7 +128,7 @@
 .signup {
   display: flex;
   gap: 0.4rem;
-  font-size: var(--font-size-content);
+  font-size: var(--font-size-menu);
 }
 .signup-link {
   text-decoration: underline;
