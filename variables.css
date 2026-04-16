@@ -1,10 +1,19 @@
 /*CSS Variables*/
 :root {
+  /*breakpoint variables*/
+  --bp-mobile: 0px;
+  --bp-tablet: 768px;
+  --bp-desktop: 1024px;
+  --bp-large: 1280px;
+
+  /*size variables*/
   --font-size-logo: 1.6rem;
   --font-size-title: 2.5rem;
   --font-size-content: 1.5rem;
   --font-size-tag: 1.125rem;
   --font-size-menu: 1rem;
+
+  /*color variables*/
   --brand-blue: #3182f6;
   --primary-bg-color: #3692ff;
   --secondary-bg-color: #cfe5ff;
