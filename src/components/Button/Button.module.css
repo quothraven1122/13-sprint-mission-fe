@@ -1,4 +1,7 @@
 /*사각형 버튼*/
+.btn:hover {
+  cursor: pointer;
+}
 .btn-rectangle {
   border-radius: 0.8rem;
   padding: 1rem 2.3rem;

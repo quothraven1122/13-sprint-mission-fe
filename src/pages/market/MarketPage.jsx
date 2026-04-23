@@ -1,5 +1,5 @@
-import React from "react";
-import { ProductCardList } from "@/components";
+import { useState } from "react";
+import { Button, ProductCardList, Input } from "@/components";
 import styles from "./MarketPage.module.css";
 import { v4 as uuidv4 } from "uuid";
 
@@ -10,6 +10,7 @@ const dummyData = {
 };
 
 export default function MarketPage() {
+  const [input, setInput] = useState("");
   return (
     <div className={styles.content}>
       <ProductCardList
@@ -21,7 +22,16 @@ export default function MarketPage() {
         title="판매 중인 상품"
         pagination={true}
         data={Array.from({ length: 10 }).map((i) => dummyData)}
-      />
+      >
+        <Input
+          placeholder="검색할 상품을 입력해주세요"
+          value={input}
+          onChange={(e) => {
+            setInput(e.target.value);
+          }}
+        />
+        <Button variant="rectangle">상품 등록하기</Button>
+      </ProductCardList>
     </div>
   );
 }
