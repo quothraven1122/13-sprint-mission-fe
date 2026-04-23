@@ -1,2 +1,9 @@
-.page {
+.content {
+  width: 120rem;
+  margin: auto;
+  padding-top: 1.6rem;
+  padding-bottom: 14rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
 }
