@@ -1,0 +1,4 @@
+export { default as icFacebook } from "./ic_facebook.png";
+export { default as icInstagram } from "./ic_instagram.png";
+export { default as icTwitter } from "./ic_twitter.png";
+export { default as icYoutube } from "./ic_youtube.png";
