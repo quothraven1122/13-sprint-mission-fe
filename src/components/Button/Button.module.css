@@ -1,0 +1,9 @@
+/*사각형 버튼*/
+.btn-rectangle {
+  border-radius: 0.8rem;
+  padding: 1rem 2.3rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--secondary-100);
+  background-color: var(--primary-100);
+}

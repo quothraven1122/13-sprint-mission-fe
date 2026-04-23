@@ -132,6 +132,9 @@ a:active {
   text-decoration: none;
   color: inherit;
 }
+a:hover {
+  cursor: pointer;
+}
 button {
   all: unset;
 }
