@@ -1,14 +1,8 @@
 import React from "react";
-import Item from "../../components/Item/Item";
+import { Item } from "@/components";
 import styles from "./ProductCardList.module.css";
 
-export default function ProductCardList({
-  title,
-  pagination = false,
-  column = 5,
-  data,
-  children,
-}) {
+export default function ProductCardList({ title, column = 5, data, children }) {
   return (
     <div>
       <div className={styles.top}>
@@ -20,7 +14,6 @@ export default function ProductCardList({
           <Item data={d} key={i} />
         ))}
       </div>
-      {pagination && <div>pagination</div>}
     </div>
   );
 }

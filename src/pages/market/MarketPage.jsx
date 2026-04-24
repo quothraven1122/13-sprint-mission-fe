@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { Button, Dropdown, ProductCardList, Input } from "@/components";
+import {
+  Button,
+  Dropdown,
+  ProductCardList,
+  Input,
+  Pagination,
+} from "@/components";
 import constant from "../../components/Dropdown/constant";
 import styles from "./MarketPage.module.css";
 
@@ -12,6 +18,7 @@ const dummyData = {
 export default function MarketPage() {
   const [input, setInput] = useState("");
   const [selected, setSelected] = useState(constant[0].name);
+  const [page, setPage] = useState(1);
   return (
     <div className={styles.content}>
       <ProductCardList
@@ -21,7 +28,6 @@ export default function MarketPage() {
       />
       <ProductCardList
         title="판매 중인 상품"
-        pagination={true}
         data={Array.from({ length: 10 }).map((i) => dummyData)}
       >
         <Input
@@ -35,6 +41,7 @@ export default function MarketPage() {
         <Dropdown menu={constant} value={selected} onChange={setSelected} />
         <Button variant="rectangle">상품 등록하기</Button>
       </ProductCardList>
+      <Pagination currentPage={page} totalPages={5} onChange={setPage} />
     </div>
   );
 }
