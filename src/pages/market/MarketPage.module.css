@@ -7,3 +7,6 @@
   flex-direction: column;
   gap: 4rem;
 }
+.input input {
+  width: 27rem;
+}

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Button, ProductCardList, Input } from "@/components";
+import { Button, Dropdown, ProductCardList, Input } from "@/components";
+import constant from "../../components/Dropdown/constant";
 import styles from "./MarketPage.module.css";
-import { v4 as uuidv4 } from "uuid";
 
 const dummyData = {
   title: "아이패드 미니 팝니다",
@@ -11,6 +11,7 @@ const dummyData = {
 
 export default function MarketPage() {
   const [input, setInput] = useState("");
+  const [selected, setSelected] = useState(constant[0].name);
   return (
     <div className={styles.content}>
       <ProductCardList
@@ -29,7 +30,9 @@ export default function MarketPage() {
           onChange={(e) => {
             setInput(e.target.value);
           }}
+          className={styles.input}
         />
+        <Dropdown menu={constant} value={selected} onChange={setSelected} />
         <Button variant="rectangle">상품 등록하기</Button>
       </ProductCardList>
     </div>

@@ -8,4 +8,8 @@
   --secondary-400: #9ca3af;
   --secondary-200: #e5e7eb;
   --secondary-100: #f3f4f6;
+  --cool-gray-200: #e5e7eb;
+
+  /*z-index variables*/
+  --z-overlay: 10;
 }
