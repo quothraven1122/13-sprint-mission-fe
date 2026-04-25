@@ -1,19 +1,18 @@
 import { Button } from "@/components";
+import { getTotalPage, getRange } from "@/utils/pagination";
 import styles from "./Pagination.module.css";
 
 const PAGINATION_LENGTH = 5;
 
-export default function Pagination({ currentPage, totalPages, onChange }) {
-  const numbers = Array.from(
-    { length: PAGINATION_LENGTH },
-    (_, i) => i + (totalPages - PAGINATION_LENGTH + 1),
-  );
+export default function Pagination({ currentPage, totalCount, onChange }) {
+  const totalPage = getTotalPage(totalCount);
+  const numbers = getRange(currentPage, totalPage);
   return (
     <div className={styles.pagination}>
       <Button
         variant="circle"
         onClick={() => {
-          if (numbers[0] !== currentPage) onChange((prev) => prev - 1);
+          if (currentPage > 1) onChange((prev) => prev - 1);
         }}
       >
         <div className={styles.btnTxt}>
@@ -36,8 +35,7 @@ export default function Pagination({ currentPage, totalPages, onChange }) {
       <Button
         variant="circle"
         onClick={() => {
-          if (numbers[PAGINATION_LENGTH - 1] !== currentPage)
-            onChange((prev) => prev + 1);
+          if (currentPage < totalPage) onChange((prev) => prev + 1);
         }}
       >
         <div className={styles.btnTxt}>

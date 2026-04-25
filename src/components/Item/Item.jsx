@@ -8,6 +8,7 @@ export default function Item({ data }) {
     <div className={styles.container}>
       <img
         src={data.images[0] || defaultImg}
+        loading="lazy"
         onError={(e) => {
           e.target.src = defaultImg;
         }}
