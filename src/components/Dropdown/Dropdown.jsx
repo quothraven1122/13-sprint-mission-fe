@@ -9,7 +9,7 @@ export default function Dropdown({ menu, value, onChange }) {
     <div className={styles.container}>
       <div className={styles.currentContainer} onClick={toggle}>
         <div className={styles.current}>
-          <p>{value}</p>
+          <p>{value.name}</p>
           <img src={icArrowDown} className={styles.icon} />
         </div>
       </div>
@@ -20,7 +20,7 @@ export default function Dropdown({ menu, value, onChange }) {
             key={m.id}
             className={styles.menu}
             onClick={(e) => {
-              onChange(m.name);
+              onChange(m);
               toggle();
             }}
           >

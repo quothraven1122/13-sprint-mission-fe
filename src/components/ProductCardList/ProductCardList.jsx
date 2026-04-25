@@ -10,8 +10,8 @@ export default function ProductCardList({ title, column = 5, data, children }) {
         <div className={styles.toolbar}>{children}</div>
       </div>
       <div className={styles.list} style={{ "--column-count": column }}>
-        {data.map((d, i) => (
-          <Item data={d} key={i} />
+        {data.map((d) => (
+          <Item data={d} key={d.id} />
         ))}
       </div>
     </div>

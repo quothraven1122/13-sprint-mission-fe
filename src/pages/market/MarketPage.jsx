@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Button,
   Dropdown,
@@ -6,30 +6,59 @@ import {
   Input,
   Pagination,
 } from "@/components";
+import { signIn, getProduct } from "@/apis";
 import constant from "../../components/Dropdown/constant";
 import styles from "./MarketPage.module.css";
 
-const dummyData = {
-  title: "아이패드 미니 팝니다",
-  price: 500000,
-  like: 240,
-};
-
 export default function MarketPage() {
+  const [best, setBest] = useState([]);
   const [input, setInput] = useState("");
-  const [selected, setSelected] = useState(constant[0].name);
+  const [selected, setSelected] = useState(constant[0]);
   const [page, setPage] = useState(1);
+  const [product, setProduct] = useState([]);
+  const [token, setToken] = useState(null);
+
+  //로그인 페이지 생성 전까지 사용할 임시 로그인 로직
+  useEffect(() => {
+    const signInPost = async () => {
+      const user = await signIn("example@email.com", "password");
+      localStorage.setItem("accessToken", user.accessToken);
+      setToken(user.accessToken);
+    };
+    signInPost();
+  }, []);
+
+  //Product 받기
+  useEffect(() => {
+    if (!token) return;
+    const getProductGet = async () => {
+      const products = await getProduct({
+        page,
+        orderBy: selected.type,
+        keyword: input,
+      });
+      setProduct(products.list);
+    };
+    getProductGet();
+  }, [token, page, selected, input]);
+
+  //Best 받기
+  useEffect(() => {
+    if (!token) return;
+    const getProductGet = async () => {
+      const products = await getProduct({
+        page,
+        orderBy: "favorite",
+      });
+      setBest(products.list.slice(0, 4));
+    };
+    getProductGet();
+  }, [token]);
+
   return (
     <div className={styles.content}>
-      <ProductCardList
-        title="베스트 상품"
-        column={4}
-        data={Array.from({ length: 4 }).map((i) => dummyData)}
-      />
-      <ProductCardList
-        title="판매 중인 상품"
-        data={Array.from({ length: 10 }).map((i) => dummyData)}
-      >
+      <ProductCardList title="베스트 상품" column={4} data={best} />
+      <ProductCardList title="판매 중인 상품" data={product}>
         <Input
           placeholder="검색할 상품을 입력해주세요"
           value={input}

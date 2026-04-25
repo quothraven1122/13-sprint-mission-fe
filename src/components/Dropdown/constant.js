@@ -6,7 +6,7 @@ export default Object.freeze([
   },
   {
     id: 2,
-    type: "like",
+    type: "favorite",
     name: "좋아요순",
   },
 ]);
