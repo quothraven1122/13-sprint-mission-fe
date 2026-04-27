@@ -1,16 +1,25 @@
-import React from "react";
+import { useMediaQuery } from "react-responsive";
 import { useDropdown } from "@/hooks";
-import { icArrowDown } from "../../assets/icons";
+import { icArrowDown, icSort } from "../../assets/icons";
 import styles from "./Dropdown.module.css";
 
 export default function Dropdown({ menu, value, onChange }) {
+  const isMobile = useMediaQuery({ maxWidth: 640 });
   const [open, toggle] = useDropdown();
   return (
     <div className={styles.container}>
       <div className={styles.currentContainer} onClick={toggle}>
         <div className={styles.current}>
-          <p>{value.name}</p>
-          <img src={icArrowDown} className={styles.icon} />
+          {!isMobile ? (
+            <>
+              <p>{value.name}</p>
+              <img src={icArrowDown} className={styles.icon} />
+            </>
+          ) : (
+            <>
+              <img src={icSort} className={styles.icon} />
+            </>
+          )}
         </div>
       </div>
 

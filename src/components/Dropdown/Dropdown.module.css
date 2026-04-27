@@ -2,6 +2,9 @@
   height: 100%;
   font-size: 1.6rem;
 }
+.container:hover {
+  cursor: pointer;
+}
 .currentContainer {
   padding: 1.2rem 2rem;
   border: 1px var(--cool-gray-200) solid;
@@ -47,4 +50,18 @@
 .menu:hover {
   cursor: pointer;
   background-color: var(--cool-gray-200);
+}
+@media (max-width: 640px) {
+  .current {
+    width: fit-content;
+  }
+  .currentContainer {
+    width: fit-content;
+  }
+  .container {
+    position: relative;
+  }
+  .dropdown {
+    right: 0;
+  }
 }
