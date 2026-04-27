@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useQuery, useMutation } from "@tanstack/react-query";
 import {
   Button,
   Dropdown,
@@ -11,13 +12,11 @@ import constant from "../../components/Dropdown/constant";
 import styles from "./MarketPage.module.css";
 
 export default function MarketPage() {
-  const [best, setBest] = useState([]);
+  const [token, setToken] = useState(null);
   const [input, setInput] = useState("");
   const [keyword, setKeyword] = useState("");
   const [selected, setSelected] = useState(constant[0]);
   const [page, setPage] = useState(1);
-  const [data, setData] = useState({ list: [] });
-  const [token, setToken] = useState(null);
 
   //로그인 페이지 생성 전까지 사용할 임시 로그인 로직
   useEffect(() => {
@@ -30,31 +29,24 @@ export default function MarketPage() {
   }, []);
 
   //Product 받기
-  useEffect(() => {
-    if (!token) return;
-    const getProductGet = async () => {
-      const products = await getProduct({
-        page,
-        orderBy: selected.type,
-        keyword,
-      });
-      setData(products);
-    };
-    getProductGet();
-  }, [token, page, selected, keyword]);
+  const { data: products = { list: [] }, isLoading: isProductsLoading } =
+    useQuery({
+      queryKey: ["products", token, page, selected, keyword],
+      queryFn: () => getProduct({ page, orderBy: selected.type, keyword }),
+      keepPreviousData: true,
+    });
 
   //Best 받기
-  useEffect(() => {
-    if (!token) return;
-    const getProductGet = async () => {
-      const products = await getProduct({
+  const { data: best = [], isLoading: isBestLoading } = useQuery({
+    queryKey: ["best", token],
+    queryFn: async () => {
+      const res = await getProduct({
         page,
         orderBy: "favorite",
       });
-      setBest(products.list.slice(0, 4));
-    };
-    getProductGet();
-  }, [token]);
+      return res?.list.slice(0, 4);
+    },
+  });
 
   return (
     <div className={styles.content}>
@@ -74,7 +66,7 @@ export default function MarketPage() {
           tablet: 3,
           mobile: 2,
         }}
-        data={data.list}
+        data={products?.list}
       >
         <Input
           placeholder="검색할 상품을 입력해주세요"
@@ -106,7 +98,7 @@ export default function MarketPage() {
       </ProductCardList>
       <Pagination
         currentPage={page}
-        totalCount={data.totalCount}
+        totalCount={products?.totalCount}
         onChange={setPage}
       />
     </div>
