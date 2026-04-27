@@ -9,7 +9,7 @@ export default function Header() {
       <div className={styles.containerLeft}>
         <a>
           <div className={styles.logo}>
-            <img src={smLogo} />
+            <img src={smLogo} className={styles.logoImg} />
             판다마켓
           </div>
         </a>

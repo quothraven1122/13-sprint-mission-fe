@@ -22,3 +22,9 @@
   width: 2rem;
   height: 2rem;
 }
+/* Desktop (1280px 이하) */
+@media (max-width: 1280px) {
+  .container {
+    padding: 2.4rem;
+  }
+}

@@ -34,3 +34,22 @@
   font-weight: 700;
   font-size: 1.8rem;
 }
+/* Desktop (1280px 이하) */
+@media (max-width: 1280px) {
+  .container {
+    padding: 2.4rem;
+  }
+  .containerLeft {
+    gap: 2rem;
+  }
+}
+
+/* Mobile Large (640px 이하) */
+@media (max-width: 640px) {
+  .logoImg {
+    display: none;
+  }
+  .containerLeft {
+    gap: 0.8rem;
+  }
+}

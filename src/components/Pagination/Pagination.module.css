@@ -1,9 +1,10 @@
 .pagination {
-  width: 100%;
+  width: fit-content;
   display: flex;
   gap: 0.4rem;
   justify-content: center;
   margin-top: 4.3rem;
+  margin: 0 auto;
 }
 .btnTxt {
   width: 1.6rem;

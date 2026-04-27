@@ -58,8 +58,24 @@ export default function MarketPage() {
 
   return (
     <div className={styles.content}>
-      <ProductCardList title="베스트 상품" column={4} data={best} />
-      <ProductCardList title="판매 중인 상품" data={data.list}>
+      <ProductCardList
+        title="베스트 상품"
+        column={{
+          desktop: 4,
+          tablet: 2,
+          mobile: 1,
+        }}
+        data={best}
+      />
+      <ProductCardList
+        title="판매 중인 상품"
+        column={{
+          desktop: 5,
+          tablet: 3,
+          mobile: 2,
+        }}
+        data={data.list}
+      >
         <Input
           placeholder="검색할 상품을 입력해주세요"
           value={input}
