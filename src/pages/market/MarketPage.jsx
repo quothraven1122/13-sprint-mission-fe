@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useQuery, useMutation } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import {
   Button,
   Dropdown,
@@ -7,17 +7,58 @@ import {
   Input,
   Pagination,
 } from "@/components";
+import { useResponsiveWidth } from "@/hooks";
 import { signIn, getProduct } from "@/apis";
 import constant from "../../components/Dropdown/constant";
 import styles from "./MarketPage.module.css";
 
 export default function MarketPage() {
+  /*1. Hooks */
+  const size = useResponsiveWidth();
+
+  /*2. State */
   const [token, setToken] = useState(null);
   const [input, setInput] = useState("");
   const [keyword, setKeyword] = useState("");
   const [selected, setSelected] = useState(constant[0]);
   const [page, setPage] = useState(1);
 
+  /*3. Server State (React-Query) */
+  //Product 받기
+  const { data: products = { list: [] }, isLoading: isProductsLoading } =
+    useQuery({
+      queryKey: ["products", token, page, selected, keyword, size],
+      queryFn: () =>
+        getProduct({
+          page,
+          pageSize: size === "mobile" ? 4 : size === "tablet" ? 6 : 10,
+          orderBy: selected.type,
+          keyword,
+        }),
+      keepPreviousData: true,
+    });
+
+  //Best 받기
+  const { data: bestRaw = [], isLoading: isBestLoading } = useQuery({
+    queryKey: ["best", token],
+    queryFn: async () => {
+      const res = await getProduct({
+        page,
+        orderBy: "favorite",
+      });
+      return res?.list;
+    },
+  });
+
+  /*4. Derived Data */
+  const best =
+    size === "mobile"
+      ? bestRaw.slice(0, 1)
+      : size === "tablet"
+        ? bestRaw.slice(0, 2)
+        : bestRaw.slice(0, 4);
+
+  /*5. Effects */
   //로그인 페이지 생성 전까지 사용할 임시 로그인 로직
   useEffect(() => {
     const signInPost = async () => {
@@ -28,26 +69,7 @@ export default function MarketPage() {
     signInPost();
   }, []);
 
-  //Product 받기
-  const { data: products = { list: [] }, isLoading: isProductsLoading } =
-    useQuery({
-      queryKey: ["products", token, page, selected, keyword],
-      queryFn: () => getProduct({ page, orderBy: selected.type, keyword }),
-      keepPreviousData: true,
-    });
-
-  //Best 받기
-  const { data: best = [], isLoading: isBestLoading } = useQuery({
-    queryKey: ["best", token],
-    queryFn: async () => {
-      const res = await getProduct({
-        page,
-        orderBy: "favorite",
-      });
-      return res?.list.slice(0, 4);
-    },
-  });
-
+  /*6. Render */
   return (
     <div className={styles.content}>
       <ProductCardList
@@ -90,8 +112,10 @@ export default function MarketPage() {
           menu={constant}
           value={selected}
           onChange={(s) => {
-            setSelected(s);
-            setPage(1);
+            if (s !== selected) {
+              setSelected(s);
+              setPage(1);
+            }
           }}
         />
         <Button variant="rectangle">상품 등록하기</Button>
