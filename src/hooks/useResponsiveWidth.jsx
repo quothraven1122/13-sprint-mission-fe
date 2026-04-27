@@ -14,6 +14,6 @@ export default function useResponsiveWidth() {
     };
   }, []);
   if (width > 1280) return "desktop";
-  if (width > 640) return "tablet";
+  if (width > 720) return "tablet";
   else return "mobile";
 }

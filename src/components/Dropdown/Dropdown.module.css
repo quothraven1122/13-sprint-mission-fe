@@ -51,7 +51,7 @@
   cursor: pointer;
   background-color: var(--cool-gray-200);
 }
-@media (max-width: 640px) {
+@media (max-width: 720px) {
   .current {
     width: fit-content;
   }

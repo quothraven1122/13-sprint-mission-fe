@@ -16,7 +16,7 @@ import styles from "./MarketPage.module.css";
 export default function MarketPage() {
   /*1. Hooks */
   const size = useResponsiveWidth();
-  const isMobile = useMediaQuery({ maxWidth: 640 });
+  const isMobile = useMediaQuery({ maxWidth: 720 });
 
   /*2. State */
   const [token, setToken] = useState(null);

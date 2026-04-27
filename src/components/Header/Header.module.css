@@ -44,8 +44,8 @@
   }
 }
 
-/* Mobile Large (640px 이하) */
-@media (max-width: 640px) {
+/* Mobile */
+@media (max-width: 720px) {
   .logoImg {
     display: none;
   }

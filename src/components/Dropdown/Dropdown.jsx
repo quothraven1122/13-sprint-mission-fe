@@ -4,7 +4,7 @@ import { icArrowDown, icSort } from "../../assets/icons";
 import styles from "./Dropdown.module.css";
 
 export default function Dropdown({ menu, value, onChange }) {
-  const isMobile = useMediaQuery({ maxWidth: 640 });
+  const isMobile = useMediaQuery({ maxWidth: 720 });
   const [open, toggle] = useDropdown();
   return (
     <div className={styles.container}>
