@@ -1,4 +1,7 @@
 /*사각형 버튼*/
+.btn {
+  text-align: center;
+}
 .btn:hover {
   cursor: pointer;
 }

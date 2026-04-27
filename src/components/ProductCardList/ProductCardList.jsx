@@ -7,7 +7,7 @@ export default function ProductCardList({ title, column, data, children }) {
     <div className={styles.container}>
       <div className={styles.top}>
         <h1 className={styles.title}>{title}</h1>
-        <div className={styles.toolbar}>{children}</div>
+        {children}
       </div>
       <div
         className={styles.list}

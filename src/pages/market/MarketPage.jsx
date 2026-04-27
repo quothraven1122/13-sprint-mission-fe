@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useMediaQuery } from "react-responsive";
 import { useQuery } from "@tanstack/react-query";
 import {
   Button,
@@ -15,6 +16,7 @@ import styles from "./MarketPage.module.css";
 export default function MarketPage() {
   /*1. Hooks */
   const size = useResponsiveWidth();
+  const isMobile = useMediaQuery({ maxWidth: 640 });
 
   /*2. State */
   const [token, setToken] = useState(null);
@@ -90,35 +92,71 @@ export default function MarketPage() {
         }}
         data={products?.list}
       >
-        <Input
-          placeholder="검색할 상품을 입력해주세요"
-          value={input}
-          onChange={(e) => {
-            setInput(e.target.value);
-            if (e.target.value.length === 0) {
-              setPage(1);
-              setKeyword(e.target.value);
-            }
-          }}
-          onKeyDown={(e) => {
-            if (e.code === "Enter") {
-              setPage(1);
-              setKeyword(input);
-            }
-          }}
-          className={styles.input}
-        />
-        <Dropdown
-          menu={constant}
-          value={selected}
-          onChange={(s) => {
-            if (s !== selected) {
-              setSelected(s);
-              setPage(1);
-            }
-          }}
-        />
-        <Button variant="rectangle">상품 등록하기</Button>
+        {!isMobile ? (
+          <>
+            <Input
+              placeholder="검색할 상품을 입력해주세요"
+              value={input}
+              onChange={(e) => {
+                setInput(e.target.value);
+                if (e.target.value.length === 0) {
+                  setPage(1);
+                  setKeyword(e.target.value);
+                }
+              }}
+              onKeyDown={(e) => {
+                if (e.code === "Enter") {
+                  setPage(1);
+                  setKeyword(input);
+                }
+              }}
+              className={styles.input}
+            />
+            <Dropdown
+              menu={constant}
+              value={selected}
+              onChange={(s) => {
+                if (s !== selected) {
+                  setSelected(s);
+                  setPage(1);
+                }
+              }}
+            />
+            <Button variant="rectangle">상품 등록하기</Button>
+          </>
+        ) : (
+          <>
+            <Button variant="rectangle">상품 등록하기</Button>
+            <Input
+              placeholder="검색할 상품을 입력해주세요"
+              value={input}
+              onChange={(e) => {
+                setInput(e.target.value);
+                if (e.target.value.length === 0) {
+                  setPage(1);
+                  setKeyword(e.target.value);
+                }
+              }}
+              onKeyDown={(e) => {
+                if (e.code === "Enter") {
+                  setPage(1);
+                  setKeyword(input);
+                }
+              }}
+              className={styles.input}
+            />
+            <Dropdown
+              menu={constant}
+              value={selected}
+              onChange={(s) => {
+                if (s !== selected) {
+                  setSelected(s);
+                  setPage(1);
+                }
+              }}
+            />
+          </>
+        )}
       </ProductCardList>
       <Pagination
         currentPage={page}
