@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
-import { useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import {
   Button,
   Dropdown,
@@ -27,7 +27,7 @@ export default function MarketPage() {
 
   /*3. Server State (React-Query) */
   //Product 받기
-  const { data: products = { list: [] }, isLoading: isProductsLoading } =
+  const { data: products = { list: [] }, isPending: isProductsPending } =
     useQuery({
       queryKey: ["products", token, page, selected, keyword, size],
       queryFn: () =>
@@ -37,11 +37,11 @@ export default function MarketPage() {
           orderBy: selected.type,
           keyword,
         }),
-      keepPreviousData: true,
+      placeholderData: keepPreviousData,
     });
 
   //Best 받기
-  const { data: bestRaw = [], isLoading: isBestLoading } = useQuery({
+  const { data: bestRaw = [], isPending: isBestPending } = useQuery({
     queryKey: ["best", token],
     queryFn: async () => {
       const res = await getProduct({
@@ -82,6 +82,7 @@ export default function MarketPage() {
           mobile: 1,
         }}
         data={best}
+        isPending={isBestPending}
       />
       <ProductCardList
         title="판매 중인 상품"
@@ -91,6 +92,7 @@ export default function MarketPage() {
           mobile: 2,
         }}
         data={products?.list}
+        isPending={isProductsPending}
       >
         {!isMobile ? (
           <>
