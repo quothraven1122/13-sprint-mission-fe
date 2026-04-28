@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useMediaQuery } from "react-responsive";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import {
   Button,
@@ -16,7 +15,6 @@ import styles from "./MarketPage.module.css";
 export default function MarketPage() {
   /*1. Hooks */
   const size = useResponsiveWidth();
-  const isMobile = useMediaQuery({ maxWidth: 720 });
 
   /*2. State */
   const [token, setToken] = useState(null);
@@ -94,7 +92,7 @@ export default function MarketPage() {
         data={products?.list}
         isPending={isProductsPending}
       >
-        {!isMobile ? (
+        {size !== "mobile" ? (
           <>
             <Input
               placeholder="검색할 상품을 입력해주세요"

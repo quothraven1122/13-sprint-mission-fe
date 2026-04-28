@@ -1,19 +1,11 @@
-import React, { useState, useEffect } from "react";
+import { useMediaQuery } from "react-responsive";
 
 export default function useResponsiveWidth() {
-  const [width, setWidth] = useState(window.innerWidth);
-  useEffect(() => {
-    const handleResize = () => {
-      setWidth(window.innerWidth);
-    };
+  const isMobile = useMediaQuery({ maxWidth: 720 });
+  const isTablet = useMediaQuery({ minWidth: 721, maxWidth: 1280 });
+  const isDesktop = useMediaQuery({ minWidth: 1281 });
 
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-  if (width > 1280) return "desktop";
-  if (width > 720) return "tablet";
-  else return "mobile";
+  if (isMobile) return "mobile";
+  if (isTablet) return "tablet";
+  return "desktop";
 }
