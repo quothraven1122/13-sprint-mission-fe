@@ -5,10 +5,10 @@ import styles from "./Dropdown.module.css";
 
 export default function Dropdown({ menu, value, onChange }) {
   const isMobile = useMediaQuery({ maxWidth: 720 });
-  const [open, toggle] = useDropdown();
+  const { open, closeDropdown, toggleDropdown } = useDropdown();
   return (
     <div className={styles.container}>
-      <div className={styles.currentContainer} onClick={toggle}>
+      <div className={styles.currentContainer} onClick={toggleDropdown}>
         <div className={styles.current}>
           {!isMobile ? (
             <>
@@ -23,14 +23,17 @@ export default function Dropdown({ menu, value, onChange }) {
         </div>
       </div>
 
-      <div className={`${styles.dropdown} ${!open && styles.dropdownClose}`}>
+      <div
+        onMouseLeave={closeDropdown}
+        className={`${styles.dropdown} ${!open && styles.dropdownClose}`}
+      >
         {menu.map((m) => (
           <div
             key={m.id}
             className={styles.menu}
             onClick={(e) => {
               onChange(m);
-              toggle();
+              closeDropdown();
             }}
           >
             {m.name}

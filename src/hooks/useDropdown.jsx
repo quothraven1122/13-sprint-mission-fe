@@ -3,9 +3,15 @@ import { useState } from "react";
 export default function useDropdown() {
   const [open, setOpen] = useState(false);
 
-  const toggle = () => {
+  const openDropdown = () => {
+    setOpen(true);
+  };
+  const closeDropdown = () => {
+    setOpen(false);
+  };
+  const toggleDropdown = () => {
     setOpen((prev) => !prev);
   };
 
-  return [open, toggle];
+  return { open, openDropdown, closeDropdown, toggleDropdown };
 }
